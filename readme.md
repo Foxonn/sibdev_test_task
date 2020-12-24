@@ -2,7 +2,9 @@
 
 1. `git clone https://github.com/Foxonn/sibdev_test_task`
 2. `docker-compose up --build`
-3. В контейнере django_app, запустить миграцию `python manage.py migrate`
+3. В контейнере django_app:
+   - запустить создание миграций `python manage.py makemigrations`
+   - запустить миграции `python manage.py migrate`
 
 ### API
 
