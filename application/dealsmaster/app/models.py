@@ -8,34 +8,36 @@ class Person(models.Model):
         return self.username
 
 
-class Gems(models.Model):
+class Gem(models.Model):
     named = models.CharField(max_length=75)
-    price = models.PositiveIntegerField()
 
     def __str__(self):
         return self.named
 
 
-class Deals(models.Model):
+class Deal(models.Model):
     purchaser = models.ForeignKey(
         Person,
-        on_delte=models.CASCADE,
+        on_delete=models.CASCADE,
         related_name='deals',
     )
     item = models.ForeignKey(
-        Gems,
+        Gem,
         on_delete=models.CASCADE,
         related_name='deals'
     )
-    count = models.PositiveSmallIntegerField()
+    total = models.PositiveIntegerField()
+    quantity = models.PositiveSmallIntegerField()
     date = models.DateTimeField()
 
     class Meta:
-        unique_together = ('item', 'date', 'count')
-
-    @property
-    def total(self):
-        return self.count * self.item.price
+        unique_together = (
+            'purchaser',
+            'total',
+            'item',
+            'date',
+            'quantity'
+        )
 
     def __str__(self):
-        return self.purchaser
+        return self.purchaser.username
