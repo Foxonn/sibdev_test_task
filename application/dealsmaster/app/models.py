@@ -2,14 +2,14 @@ from django.db import models
 
 
 class Person(models.Model):
-    username = models.CharField(max_length=75)
+    username = models.CharField(max_length=75, unique=True)
 
     def __str__(self):
         return self.username
 
 
 class Gem(models.Model):
-    named = models.CharField(max_length=75)
+    named = models.CharField(max_length=75, unique=True)
 
     def __str__(self):
         return self.named

@@ -10,6 +10,7 @@ djangorestframework = "*"
 ipython = "*"
 django-redis = "*"
 gunicorn = "*"
+django-silk = "*"
 
 [dev-packages]
 

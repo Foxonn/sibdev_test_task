@@ -2,7 +2,7 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.core.cache import cache
 
-from .models import Deal, Gem, Person
+from app.models import Deal, Gem, Person
 
 
 @receiver(post_save, sender=Deal)
